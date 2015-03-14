@@ -9,5 +9,5 @@ ehthumbs.db
 Thumbs.db
 
 # NODE generated files #
-.log
+*.log
 node_modules/
