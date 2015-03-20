@@ -11,8 +11,8 @@ var baseUrl = "dev.virtualearth.net";
 var mongoose = require('mongoose');
 var Bridge     = require('./app/models/bridge');
 
-//setInterval(function() {
-	
+setInterval(function() {
+	console.log("TM: UPDATING BRIDGE DELAYS");
 	// Fetch delays from BING servers
 	Bridge.find(function(err, bridges) {
 		for(var i = 0; i < bridges.length ; i++){
@@ -20,7 +20,7 @@ var Bridge     = require('./app/models/bridge');
 	   	}
 	});
 
-//}, the_interval);
+}, the_interval);
 
 function fetchCoordsFromBridge(bridge){
 	var params = '?o=json&wp.0='+bridge.start+"&wp.1="+bridge.end+"&key="+secretKey;
@@ -85,7 +85,6 @@ function fetchCoordsFromBridge(bridge){
 
 	    bridge.save(function(err) {
 	      if (err) console.log("Error saving");
-	      console.log("Success saving");
 	    });
 
 	    // Update colors and data shown
